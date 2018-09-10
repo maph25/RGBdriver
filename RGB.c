@@ -206,7 +206,7 @@ void RGB_yellow(void)
 	RGB_yellow_led_on_off(LED_ON);
 }
 
-void no_color(void)
+void RGB_no_color(void)
 {
 	RGB_green_led_on_off(LED_OFF);
 	RGB_blue_led_on_off(LED_OFF);

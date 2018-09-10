@@ -85,7 +85,6 @@ typedef enum{GPIO_A, /*!< Definition to select GPIO A */
 			 GPIO_C, /*!< Definition to select GPIO C */
 			 GPIO_D, /*!< Definition to select GPIO D */
 			 GPIO_E, /*!< Definition to select GPIO E */
-			 GPIO_F  /*!< Definition to select GPIO F */
 			} gpio_port_name_t;
 
 /*! This data type is used to configure the pin control register*/
@@ -100,8 +99,8 @@ typedef const uint32_t gpio_pin_control_register_t;
 
  	 \param[in]  portName Port to clear interrupts.
  	 \return void
- 	 \todo Implement a mechanism to clear interrupts by a specific pin.
- */
+ 	 */
+
 void GPIO_clearInterrupt(gpio_port_name_t portName);
 /********************************************************************************************/
 /********************************************************************************************/

@@ -11,6 +11,23 @@
 #include "GPIO.h"
 #include "Bits.h"
 
+extern uint8 FlagPortC;
+extern uint8 FlagPortA;
+
+/**SW2 interrupt*/
+void PORTC_IRQHandler()
+{
+	FlagPortC = TRUE;
+	GPIO_clear_interrupt(GPIO_C);
+}
+
+/**SW3 interrupt*/
+void PORTA_IRQHandler()
+{
+	FlagPortA = TRUE;
+	GPIO_clear_interrupt(GPIO_A);
+
+}
 
 void GPIO_clear_interrupt(gpio_port_name_t portName)
 {
@@ -125,7 +142,6 @@ uint32_t GPIO_read_port(gpio_port_name_t portName)
 			break;
 		case GPIO_E: /** GPIO E is selected*/
 			return GPIOE->PDIR;
-			break;
 		default:/**If doesn't exist the option*/
 			return(FALSE);
 		break;
@@ -139,19 +155,19 @@ uint8_t GPIO_read_pin(gpio_port_name_t portName, uint8_t pin)
 	switch(portName)
 	{
 		case GPIO_A:/** GPIO A is selected*/
-			GPIOA->PDIR &= (ONE << pin);
+			GPIOA->PDDR &=~ (ONE << pin);
 			break;
 		case GPIO_B:/** GPIO B is selected*/
-			GPIOB->PDIR &= (ONE << pin);
+			GPIOB->PDDR &=~ (ONE << pin);
 			break;
 		case GPIO_C:/** GPIO C is selected*/
-			GPIOC->PDIR &= (ONE << pin);
+			GPIOC->PDDR &=~ (ONE << pin);
 			break;
 		case GPIO_D:/** GPIO D is selected*/
-			GPIOD->PDIR &= (ONE << pin);
+			GPIOD->PDDR &=~ (ONE << pin);
 			break;
 		case GPIO_E: /** GPIO E is selected*/
-			GPIOE->PDIR &= (ONE << pin);
+			GPIOE->PDDR &=~ (ONE << pin);
 			break;
 		default:/**If doesn't exist the option*/
 			return(FALSE);

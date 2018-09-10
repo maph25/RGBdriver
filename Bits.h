@@ -50,6 +50,18 @@ typedef enum {BIT0,  /*!< Bit 0 */
 typedef enum{FALSE, TRUE} BooleanType;
 /*! This definition is as a general definitions to bits turn-on or turn-off any bit*/
 typedef enum {BIT_OFF, BIT_ON} BIT_ON_OFF_Type;
+/*! This data type is unsigned integer of 8 bits*/
+typedef unsigned char uint8;
+/*! This data type is signed integer of 8 bits*/
+typedef char sint8;
+/*! This data type is 16-bit unsigned integer*/
+typedef unsigned short int uint16;
+/*! This data type is 16-bit signed integer*/
+typedef short int sint16;
+/*! This data type is 32-bit unsigned integer*/
+typedef unsigned long int uint32;
+/*! This data type is 16-bit signed integer*/
+typedef long int sint32;
 
 
 #endif /* BITS_H_ */

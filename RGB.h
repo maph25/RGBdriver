@@ -1,4 +1,4 @@
-*
+/*
  * RGB.h
  *
  *  Created on: 04/09/2018
@@ -38,7 +38,7 @@
 #define COLOR_LIMIT (0x06u)
 
 
-typedef enum {GREEN, BLUE, PURPLE, RED, YELLOW, WHITE, NO_COLOR} Colors_t;
+typedef enum {GREEN, BLUE, PURPLE, RED, YELLOW, NO_COLOR} Colors_t;
 
 
 void RGB_init(void);
