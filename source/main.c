@@ -92,7 +92,7 @@ int main(void)
 				/**White*/
 				RGB_white_led_on_off(LED_ON);
 			}
-		} while (color <= 6);
+		} while (color <= NO_COLOR);
 
 	}
 
