@@ -16,10 +16,14 @@ gpio_pin_control_register_t pinControlRegisterGPIOCpin6 = GPIO_MUX1|GPIO_PE|GPIO
 uint8 FlagPortC = FALSE;
 uint8 FlagPortA = FALSE;
 
+uint8_t INTERRUPT_sw2();
+uint8_t INTERRUPT_sw3();
+
 int main(void)
 {
-	uint8 statePortC = 0;
-	uint8 statePortA = 0;
+	uint8_t statePortC = 0;
+	uint8_t statePortA = 0;
+
 	GPIO_clock_gating(GPIO_B);
 	GPIO_clock_gating(GPIO_C);
 
@@ -129,7 +133,7 @@ int main(void)
 	    return 0 ;
 	}
 
-uint8_t InterruptSW2(color){
+uint8_t INTERRUPT_sw2(color){
 	if(statePortC)
 		{
 		do
@@ -137,15 +141,16 @@ uint8_t InterruptSW2(color){
 			color++; /**Variable color increases its value*/
 			}while(color <= NO_COLOR);
 		}
-	else
+	else{
 		color = color;/**Varialble color keeps its previous value*/
+	}
 
-		return color;
 		statePortC = !statePortC;
 		FlagPortC = FALSE;
+		return color;
 }
 
-uint8_t InterruptSW3(color){
+uint8_t INTERRUPT_sw3(color){
 	if(statePortA)
 		{
 		do
