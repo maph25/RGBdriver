@@ -15,6 +15,9 @@ gpio_pin_control_register_t pinControlRegisterGPIOCpin6 = GPIO_MUX1|GPIO_PE|GPIO
 
 int main(void)
 {
+	uint8_t cont = (1u);
+	uint8_t inputValueSW2;
+	uint8_t inputValueSW3;
 	GPIO_clock_gating(GPIO_B);
 	GPIO_clock_gating(GPIO_C);
 
@@ -46,7 +49,7 @@ int main(void)
 		}
 	}
 
-	Colors_t color = NO_COLOR;
+	Colors_t color = ZERO;
 
 		RGB_init();
 
@@ -77,7 +80,49 @@ int main(void)
 
 	while(1)
 	{
-		color = RGB_color_selector();
+		if(FALSE == inputValueSW2)
+			cont++;
+		else if (FALSE == inputValueSW3)
+			cont--;
+	}
+
+		switch(cont)
+		{
+		case 1:
+			/*apagar todos los leds*/
+			RGB_no_color();
+			/*amarillo*/
+			RGB_yellow();
+			break;
+		case 2:
+			/*apagar todos los leds*/
+			RGB_no_color();
+			/*rojo*/
+			RGB_red();
+			break;
+		case 3:
+			/*apagar todos los leds*/
+			RGB_no_color();
+			/*morado*/
+			RGB_purple();
+			break;
+		case 4:
+			/*apagar todos los leds*/
+			RGB_no_color();
+			/*azul*/
+			RGB_blue();
+			break;
+		case 5:
+			/*apagar todos los leds*/
+			RGB_no_color();
+			/*verde*/
+			RGB_green();
+			break;
+		}
+	return 0;
+}
+
+/**color = RGB_color_selector();
 	    switch (color)
 	    {
     		case GREEN:
@@ -103,7 +148,5 @@ int main(void)
 				RGB_no_color();
 			break;
 	    }
-	}
+	*/
 
-    return 0 ;
-}
